@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Headers, Inject, Logger } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Headers,
+  Inject,
+  Logger,
+} from '@nestjs/common';
 import { VehiclesService } from './vehicles.service';
 
 @Controller('vehicles')
@@ -20,6 +28,21 @@ export class VehiclesController {
 
   @Post('/')
   private createVehicle(@Headers() headers): Promise<void> {
+    return;
+  }
+
+  @Put('/:vehicleId/activate')
+  private activateVehicle(@Headers() headers): Promise<void> {
+    return;
+  }
+
+  @Put('/:vehicleId/deactivate')
+  private deactivateVehicle(@Headers() headers): Promise<void> {
+    return;
+  }
+
+  @Put('/:vehicleId/kill')
+  private killVehicle(@Headers() headers): Promise<void> {
     return;
   }
 }

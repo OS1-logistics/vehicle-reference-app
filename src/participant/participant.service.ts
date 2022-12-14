@@ -17,7 +17,7 @@ export class ParticipantService {
   @Inject(HttpService)
   private readonly httpService: HttpService;
 
-  private getParticipantServiceBaseUrl(): string {
+  getParticipantServiceBaseUrl(): string {
     return `https://${process.env.TENANT_DNS}/core/api/v2/participantservice`;
   }
 
@@ -25,7 +25,7 @@ export class ParticipantService {
     return `https://${process.env.TENANT_DNS}/core/api/v1/aaa`;
   }
 
-  private async buildHeaders(): Promise<AxiosRequestHeaders> {
+  async buildHeaders(): Promise<AxiosRequestHeaders> {
     const axiosResponse = await this.generateClientCredentials();
     return {
       [ServiceConstants.http_headers.x_coreos_request_id]: uuidv4(),
