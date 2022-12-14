@@ -1,14 +1,16 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { VehicleModule } from './vehicles/vehicle.module';
 import { VehiclesModule } from './vehicles/vehicles.module';
 import { ParticipantService } from './participant/participant.service';
-import { VehiclesModule } from './vehicles/vehicles.module';
+import { ParticipantModule } from './participant/participant.module';
+import { VehiclesController } from './vehicles/vehicles.controller';
+import { HttpModule } from '@nestjs/axios';
+import { VehiclesService } from './vehicles/vehicles.service';
 
 @Module({
-  imports: [VehicleModule, VehiclesModule],
-  controllers: [AppController],
-  providers: [AppService, ParticipantService],
+  imports: [HttpModule, VehiclesModule, ParticipantModule],
+  controllers: [AppController, VehiclesController],
+  providers: [AppService, ParticipantService, VehiclesService],
 })
 export class AppModule {}
