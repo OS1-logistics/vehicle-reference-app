@@ -75,4 +75,34 @@ export class VehiclesService {
         );
       });
   }
+
+  async updateVehicle(
+    vehicleId: string,
+    vehicle: UpdateVehiclePropertiesRequestDTO,
+  ): Promise<void> {
+    return await this.httpService.axiosRef
+      .put(
+        this.getVehiclesUrl() + `/${vehicleId}`,
+        {
+          properties: {
+            vehicle,
+          },
+        },
+        {
+          headers: await this.participantService.buildHeaders(),
+        },
+      )
+      .then(() => {
+        this.logger.log(`Vehicle ${vehicleId} successfully updated`);
+      })
+      .catch((error) => {
+        this.logger.error(error);
+        const errorData = handleErrorResponse(error);
+        this.logger.error(errorData);
+        throw new HttpException(
+          `Failed to update Vehicle ${vehicleId}: ${errorData.description}`,
+          errorData.status,
+        );
+      });
+  }
 }
