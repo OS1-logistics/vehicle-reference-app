@@ -2,7 +2,7 @@ import { HttpService } from '@nestjs/axios';
 import { HttpException, Inject, Injectable, Logger } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
 import { VehicleDTO } from '../common/dto/vehicle/vehicle.dto';
-import { AddVehicleRequestDTO } from '../common/dto/vehicle/vehicle.request.dto';
+import { AddVehicleRequestDTO, UpdateVehiclePropertiesRequestDTO } from '../common/dto/vehicle/vehicle.request.dto';
 import { handleErrorResponse } from '../common/error/axios.error';
 import { ParticipantService } from '../participant/participant.service';
 
@@ -81,17 +81,9 @@ export class VehiclesService {
     vehicle: UpdateVehiclePropertiesRequestDTO,
   ): Promise<void> {
     return await this.httpService.axiosRef
-      .put(
-        this.getVehiclesUrl() + `/${vehicleId}`,
-        {
-          properties: {
-            vehicle,
-          },
-        },
-        {
-          headers: await this.participantService.buildHeaders(),
-        },
-      )
+      .put(this.getVehiclesUrl() + `/${vehicleId}`, vehicle, {
+        headers: await this.participantService.buildHeaders(),
+      })
       .then(() => {
         this.logger.log(`Vehicle ${vehicleId} successfully updated`);
       })

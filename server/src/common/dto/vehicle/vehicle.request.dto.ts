@@ -9,6 +9,6 @@ export class AddVehicleRequestDTO {
   properties?: VehicleProperties;
 }
 
-export class UpdateVehiclePropertiesDTO {
+export class UpdateVehiclePropertiesRequestDTO {
   properties: VehicleProperties;
 }
