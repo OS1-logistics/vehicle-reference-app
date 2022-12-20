@@ -17,10 +17,6 @@ export class VehicleStateMachine {
       current: 'inactive:inactive',
       transitions: ['inactive:dead'],
     },
-    {
-      current: 'inactive:dead',
-      transitions: [],
-    },
   ];
 
   public getState(stateName: string): State {

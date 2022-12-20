@@ -1,11 +1,17 @@
 import { HttpService } from '@nestjs/axios';
 import {
   HttpException,
-  HttpStatus,
   Inject,
   Injectable,
   Logger,
+  OnModuleInit,
 } from '@nestjs/common';
+import {
+  ATTRIBUTES_CREATE_BODY,
+  PARTICIPANT_CREATE_BODY,
+  PARTICIPANT_EXISTS_ERROR_CODE,
+  VEHICLE_NAME_PLURAL,
+} from '../common/constants/vehicle.constants';
 import { ServiceConstants } from '../common/constants/service.constants';
 import { VehicleDTO } from '../common/dto/vehicle/vehicle.dto';
 import {
@@ -18,7 +24,63 @@ import { ParticipantService } from '../participant/participant.service';
 import { VehicleStateMachine } from './vehicle.state-machine';
 
 @Injectable()
-export class VehiclesService {
+export class VehiclesService implements OnModuleInit {
+  async onModuleInit() {
+    try {
+      const headers = await this.participantService.buildHeaders();
+      // create vehicle participant type
+      this.httpService.axiosRef
+        .post(
+          this.participantService.getParticipantServiceBaseUrl() +
+            '/participant-types',
+          PARTICIPANT_CREATE_BODY,
+          {
+            headers,
+          },
+        )
+        .then(() => {
+          this.logger.log(
+            `Participant Type ${VEHICLE_NAME_PLURAL} Successfully Created`,
+          );
+        })
+        .catch((error) => {
+          const errorData = handleErrorResponse(error);
+          if (errorData.code !== PARTICIPANT_EXISTS_ERROR_CODE) {
+            throw new Error(
+              `Error communicating with Participant Service: ${errorData.description}`,
+            );
+          }
+          this.logger.log(
+            `Participant Type ${VEHICLE_NAME_PLURAL} Already Exists`,
+          );
+        });
+      // create vehicle attributes
+      this.httpService.axiosRef
+        .put(
+          this.participantService.getParticipantServiceBaseUrl() +
+            `/participant-types/${VEHICLE_NAME_PLURAL}/config/attributes`,
+          ATTRIBUTES_CREATE_BODY,
+          {
+            headers,
+          },
+        )
+        .then(() => {
+          this.logger.log(
+            `Participant Type ${VEHICLE_NAME_PLURAL} Attributes Added`,
+          );
+        })
+        .catch((error) => {
+          const errorData = handleErrorResponse(error);
+          throw new Error(
+            `Error communicating with Participant Service: ${errorData.description}`,
+          );
+        });
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
   logger = new Logger(this.constructor.name);
 
   @Inject(HttpService)
@@ -31,7 +93,7 @@ export class VehiclesService {
   private readonly vehicleStateMachines: VehicleStateMachine;
 
   private getVehiclesUrl(): string {
-    return `https://${process.env.TENANT_DNS}/core/api/v2/participantservice/dgvehicles`;
+    return `https://${process.env.TENANT_DNS}/core/api/v2/participantservice/${VEHICLE_NAME_PLURAL}`;
   }
 
   async getAllVehicles(): Promise<VehicleDTO[]> {
