@@ -25,11 +25,22 @@ import { VehicleStateMachine } from './vehicle.state-machine';
 
 @Injectable()
 export class VehiclesService implements OnModuleInit {
+  logger = new Logger(this.constructor.name);
+
+  @Inject(HttpService)
+  private readonly httpService: HttpService;
+
+  @Inject(ParticipantService)
+  private readonly participantService: ParticipantService;
+
+  @Inject(VehicleStateMachine)
+  private readonly vehicleStateMachines: VehicleStateMachine;
+
   async onModuleInit() {
     try {
       const headers = await this.participantService.buildHeaders();
       // create vehicle participant type
-      this.httpService.axiosRef
+      await this.httpService.axiosRef
         .post(
           this.participantService.getParticipantServiceBaseUrl() +
             '/participant-types',
@@ -55,7 +66,7 @@ export class VehiclesService implements OnModuleInit {
           );
         });
       // create vehicle attributes
-      this.httpService.axiosRef
+      await this.httpService.axiosRef
         .put(
           this.participantService.getParticipantServiceBaseUrl() +
             `/participant-types/${VEHICLE_NAME_PLURAL}/config/attributes`,
@@ -81,19 +92,8 @@ export class VehiclesService implements OnModuleInit {
     }
   }
 
-  logger = new Logger(this.constructor.name);
-
-  @Inject(HttpService)
-  private readonly httpService: HttpService;
-
-  @Inject(ParticipantService)
-  private readonly participantService: ParticipantService;
-
-  @Inject(VehicleStateMachine)
-  private readonly vehicleStateMachines: VehicleStateMachine;
-
   private getVehiclesUrl(): string {
-    return `https://${process.env.TENANT_DNS}/core/api/v2/participantservice/${VEHICLE_NAME_PLURAL}`;
+    return `https://${process.env.TENANT_DNS}/core/api/v2/participants/${VEHICLE_NAME_PLURAL}`;
   }
 
   async getAllVehicles(): Promise<VehicleDTO[]> {
