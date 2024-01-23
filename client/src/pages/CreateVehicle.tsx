@@ -82,7 +82,7 @@ function CreateVehicle(props: any) {
     try {
       await createVehicle(data, props.console);
     navigate({
-      pathname: '/vehicles/create',
+      pathname: '/os1-vehicle-reference-app/create',
       search: `?${createSearchParams({
         success: 'true',
         message: 'created',

@@ -7,6 +7,8 @@ import { ParticipantModule } from './participant/participant.module';
 import { VehiclesController } from './vehicles/vehicles.controller';
 import { HttpModule } from '@nestjs/axios';
 import { ConfigModule } from '@nestjs/config';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -16,6 +18,10 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({
       envFilePath: ['.env.local', '.env'],
     }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'client'),
+    }),
+
   ],
   controllers: [AppController, VehiclesController],
   providers: [AppService, ParticipantService],
