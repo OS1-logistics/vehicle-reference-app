@@ -8,9 +8,9 @@
   "version" "1.2.6"
 
 "@adobe/css-tools@^4.0.1":
-  "integrity" "sha512-DA5a1C0gD/pLOvhv33YMrbf2FK3oUzwNl9oOJqE4XVjuEtt6XIakRcsd7eLiOSPkp1kTRQGICTA8cKra/vFbjw=="
-  "resolved" "https://registry.npmjs.org/@adobe/css-tools/-/css-tools-4.3.2.tgz"
-  "version" "4.3.2"
+  "integrity" "sha512-rE0Pygv0sEZ4vBWHlAgJLGDU7Pm8xoO6p3wsEceb7GYAjScrOHpEo8KK/eVkAcnSM+slAEtXjA2JpdjLp4fJQQ=="
+  "resolved" "https://registry.npmjs.org/@adobe/css-tools/-/css-tools-4.3.3.tgz"
+  "version" "4.3.3"
 
 "@alloc/quick-lru@^5.2.0":
   "integrity" "sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw=="
@@ -1445,41 +1445,78 @@
 
 "@fortawesome/fontawesome-common-types@^0.1.7":
   "integrity" "sha512-ego8jRVSHfq/iq4KRZJKQeUAdi3ZjGNrqw4oPN3fNdvTBnLCSntwVCnc37bsAJP9UB8MhrTfPnZYxkv2vpS4pg=="
-  "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.7.tgz"
+  "resolved" "https://npm.fontawesome.com/@fortawesome/fontawesome-common-types/-/0.1.7/fontawesome-common-types-0.1.7.tgz"
   "version" "0.1.7"
 
 "@fortawesome/fontawesome-common-types@6.5.1":
   "integrity" "sha512-GkWzv+L6d2bI5f/Vk6ikJ9xtl7dfXtoRu3YGE6nq0p/FFqA1ebMOAWg3XgRyb0I6LYyYkiAo+3/KrwuBp8xG7A=="
-  "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-6.5.1.tgz"
+  "resolved" "https://npm.fontawesome.com/@fortawesome/fontawesome-common-types/-/6.5.1/fontawesome-common-types-6.5.1.tgz"
   "version" "6.5.1"
 
 "@fortawesome/fontawesome-svg-core@^6.2.1", "@fortawesome/fontawesome-svg-core@~1 || ~6":
   "integrity" "sha512-MfRCYlQPXoLlpem+egxjfkEuP9UQswTrlCOsknus/NcMoblTH2g0jPrapbcIb04KGA7E2GZxbAccGZfWoYgsrQ=="
-  "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-6.5.1.tgz"
+  "resolved" "https://npm.fontawesome.com/@fortawesome/fontawesome-svg-core/-/6.5.1/fontawesome-svg-core-6.5.1.tgz"
   "version" "6.5.1"
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.5.1"
 
 "@fortawesome/fontawesome@^1.1.8":
   "integrity" "sha512-c0/MtkPVT0fmiFcCyYoPjkG9PkMOvfrZw2+0BaJ+Rh6UEcK1AR/LaRgrHHjUkbAbs9LXxQJhFS8CJ4uSnK2+JA=="
-  "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome/-/fontawesome-1.1.8.tgz"
+  "resolved" "https://npm.fontawesome.com/@fortawesome/fontawesome/-/1.1.8/fontawesome-1.1.8.tgz"
   "version" "1.1.8"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.1.7"
 
 "@fortawesome/free-solid-svg-icons@^6.2.1":
   "integrity" "sha512-S1PPfU3mIJa59biTtXJz1oI0+KAXW6bkAb31XKhxdxtuXDiUIFsih4JR1v5BbxY7hVHsD1RKq+jRkVRaf773NQ=="
-  "resolved" "https://registry.npmjs.org/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-6.5.1.tgz"
+  "resolved" "https://npm.fontawesome.com/@fortawesome/free-solid-svg-icons/-/6.5.1/free-solid-svg-icons-6.5.1.tgz"
   "version" "6.5.1"
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.5.1"
 
 "@fortawesome/react-fontawesome@^0.2.0":
   "integrity" "sha512-uHg75Rb/XORTtVt7OS9WoK8uM276Ufi7gCzshVWkUJbHhh3svsUUeqXerrM96Wm7fRiDzfKRwSoahhMIkGAYHw=="
-  "resolved" "https://registry.npmjs.org/@fortawesome/react-fontawesome/-/react-fontawesome-0.2.0.tgz"
+  "resolved" "https://npm.fontawesome.com/@fortawesome/react-fontawesome/-/0.2.0/react-fontawesome-0.2.0.tgz"
   "version" "0.2.0"
   dependencies:
     "prop-types" "^15.8.1"
+
+"@foxtrotplatform/console-ui-js@^0.9.2":
+  "integrity" "sha512-o6bBw36iBXdIeg14uHIxlu1q4LsfHtlpCXzKuZl6VvzXUKgb15WpiPXtQlzFKZjwdFMvkER6QPtXFlbwrZRNEw=="
+  "resolved" "https://npm.pkg.github.com/download/@foxtrotplatform/console-ui-js/0.9.2/7ad4be81f7a601d72954d61dd515a0f5e10d5a6d"
+  "version" "0.9.2"
+  dependencies:
+    "@fortawesome/fontawesome" "^1.1.8"
+    "@fullhuman/postcss-purgecss" "^5.0.0"
+    "@microsoft/fetch-event-source" "^2.0.1"
+    "@types/node" "^18.14.0"
+    "axios" "^0.21.4"
+    "cssnano" "^5.1.15"
+    "moment-timezone" "^0.5.42"
+    "node-libs-browser" "^2.2.1"
+    "oidc-client" "^1.11.5"
+    "path" "^0.12.7"
+    "postcss" "^8.3.11"
+    "postcss-cli" "^8.3.1"
+    "tailwindcss" "3.0.8"
+    "ts-node" "^10.9.1"
+    "typescript" "^4.9.5"
+    "uuid" "^8.3.2"
+    "uuid-by-string" "^3.0.4"
+
+"@foxtrotplatform/console-ui-react@0.9.1":
+  "integrity" "sha512-Aro5tCO4ZoYszteXLgVPJj3EoTc9Axw5BmZwtJ+pQ0TkEasTUz20jjimlGvBVfQKgTra09Q2zPUApxbozdsr9w=="
+  "resolved" "file:../../../Downloads/console-ui-sdk/wrappers/console-ui-react/foxtrotplatform-console-ui-react-0.9.1.tgz"
+  "version" "0.9.1"
+  dependencies:
+    "@foxtrotplatform/console-ui-js" "^0.9.2"
+    "@fullhuman/postcss-purgecss" "^5.0.0"
+    "@react-native-community/eslint-config" "^2.0.0"
+    "@types/react" "^17.0.37"
+    "axios" "^0.21.4"
+    "cssnano" "^5.1.15"
+    "react" "^18.2.0"
+    "react-router-dom" "^6.10.0"
 
 "@fullhuman/postcss-purgecss@^5.0.0":
   "integrity" "sha512-onDS/b/2pMRzqSoj4qOs2tYFmOpaspjTAgvACIHMPiicu1ptajiBruTrjBzTKdxWdX0ldaBb7wj8nEaTLyFkJw=="
@@ -1830,43 +1867,6 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.5"
     "fastq" "^1.6.0"
-
-"@os1-platform/console-ui-js@0.8.4":
-  "integrity" "sha512-MrFJB3jC020/OUnqgZOgW4g3CwK5dcl+R9fFRoOiX7Ueji5h0JoCx/WpDVyBSZnON8IiEBPsa3YAHsGu2zfzXQ=="
-  "resolved" "https://registry.npmjs.org/@os1-platform/console-ui-js/-/console-ui-js-0.8.4.tgz"
-  "version" "0.8.4"
-  dependencies:
-    "@fortawesome/fontawesome" "^1.1.8"
-    "@fullhuman/postcss-purgecss" "^5.0.0"
-    "@microsoft/fetch-event-source" "^2.0.1"
-    "@types/node" "^18.14.0"
-    "axios" "^0.21.4"
-    "cssnano" "^5.1.15"
-    "moment-timezone" "^0.5.42"
-    "node-libs-browser" "^2.2.1"
-    "oidc-client" "^1.11.5"
-    "path" "^0.12.7"
-    "postcss" "^8.3.11"
-    "postcss-cli" "^8.3.1"
-    "tailwindcss" "3.0.8"
-    "ts-node" "^10.9.1"
-    "typescript" "^4.9.5"
-    "uuid" "^8.3.2"
-    "uuid-by-string" "^3.0.4"
-
-"@os1-platform/console-ui-react@0.8.4":
-  "integrity" "sha512-gbYHG8iPSK0vqPQ05ddQleWwxMPHKv9TXZHeaameEgAUbvj/VssMW7sYfXsVYXUU0UWW8EtW20lzufEHUTgZ1g=="
-  "resolved" "https://registry.npmjs.org/@os1-platform/console-ui-react/-/console-ui-react-0.8.4.tgz"
-  "version" "0.8.4"
-  dependencies:
-    "@fullhuman/postcss-purgecss" "^5.0.0"
-    "@os1-platform/console-ui-js" "0.8.4"
-    "@react-native-community/eslint-config" "^2.0.0"
-    "@types/react" "^17.0.37"
-    "axios" "^0.21.4"
-    "cssnano" "^5.1.15"
-    "react" "^18.2.0"
-    "react-router-dom" "^6.10.0"
 
 "@pkgjs/parseargs@^0.11.0":
   "integrity" "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="
@@ -2544,6 +2544,11 @@
   "integrity" "sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw=="
   "resolved" "https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.7.tgz"
   "version" "2.0.7"
+
+"@types/uuid@^9.0.7":
+  "integrity" "sha512-WUtIVRUZ9i5dYXefDEAI7sh9/O7jGvHg7Df/5O/gtH3Yabe5odI3UWopVR1qbPXQtvOxWu3mM4XxlYeZtMWF4g=="
+  "resolved" "https://registry.npmjs.org/@types/uuid/-/uuid-9.0.7.tgz"
+  "version" "9.0.7"
 
 "@types/ws@^8.5.5":
   "integrity" "sha512-vmQSUcfalpIq0R9q7uTo2lXs6eGIpt9wtnLdMv9LVpIjCA/+ufZRozlVoVelIYixx1ugCBKDhn89vnsEGOCx9A=="
@@ -3294,9 +3299,9 @@
     "follow-redirects" "^1.14.0"
 
 "axios@^1.2.1":
-  "integrity" "sha512-Ii012v05KEVuUoFWmMW/UQv9aRIc3ZwkWDcM+h5Il8izZCtRVpDUfwpoFf7eOtajT3QiGR4yDUx7lPqHJULgbg=="
-  "resolved" "https://registry.npmjs.org/axios/-/axios-1.6.5.tgz"
-  "version" "1.6.5"
+  "integrity" "sha512-XZLZDFfXKM9U/Y/B4nNynfCRUqNyVZ4sBC/n9GDRCkq9vd2mIvKjKKsbIh1WPmHmNbg6ND7cTBY3Y2+u1G3/2Q=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-1.6.6.tgz"
+  "version" "1.6.6"
   dependencies:
     "follow-redirects" "^1.15.4"
     "form-data" "^4.0.0"
@@ -3765,9 +3770,9 @@
     "lodash.uniq" "^4.5.0"
 
 "caniuse-lite@^1.0.0", "caniuse-lite@^1.0.30001565", "caniuse-lite@^1.0.30001578":
-  "integrity" "sha512-u5AUVkixruKHJjw/pj9wISlcMpgFWzSrczLZbrqBSxukQixmg0SJ5sZTpvaFvxU0HoQKd4yoyAogyrAz9pzJnA=="
-  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001579.tgz"
-  "version" "1.0.30001579"
+  "integrity" "sha512-mtj5ur2FFPZcCEpXFy8ADXbDACuNFXg6mxVDqp7tqooX6l3zwm+d8EPoeOSIFRDvHs8qu7/SLFOGniULkcH2iA=="
+  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001580.tgz"
+  "version" "1.0.30001580"
 
 "case-sensitive-paths-webpack-plugin@^2.4.0":
   "integrity" "sha512-roIFONhcxog0JSSWbvVAh3OocukmSgpqOH6YpMkCvav/ySIV3JKg4Dc8vYtQjYi/UxpNE36r/9v+VqTQqgkYmw=="
@@ -4759,9 +4764,9 @@
     "jake" "^10.8.5"
 
 "electron-to-chromium@^1.4.601":
-  "integrity" "sha512-QHscvvS7gt155PtoRC0dR2ilhL8E9LHhfTQEq1uD5AL0524rBLAwpAREFH06f87/e45B9XkR6Ki5dbhbCsVEIg=="
-  "resolved" "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.643.tgz"
-  "version" "1.4.643"
+  "integrity" "sha512-EeS1oQDCmnYsRDRy2zTeC336a/4LZ6WKqvSaM1jLocEk5ZuyszkQtCpsqvuvaIXGOUjwtvF6LTcS8WueibXvSw=="
+  "resolved" "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.645.tgz"
+  "version" "1.4.645"
 
 "elliptic@^6.5.3", "elliptic@^6.5.4":
   "integrity" "sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ=="
@@ -5703,11 +5708,6 @@
   "integrity" "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
-
-"fsevents@^2.3.2", "fsevents@~2.3.2":
-  "integrity" "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw=="
-  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz"
-  "version" "2.3.3"
 
 "function-bind@^1.1.1", "function-bind@^1.1.2":
   "integrity" "sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA=="
@@ -10818,6 +10818,11 @@
   "integrity" "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   "version" "8.3.2"
+
+"uuid@^9.0.1":
+  "integrity" "sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA=="
+  "resolved" "https://registry.npmjs.org/uuid/-/uuid-9.0.1.tgz"
+  "version" "9.0.1"
 
 "v8-compile-cache-lib@^3.0.1":
   "integrity" "sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg=="
