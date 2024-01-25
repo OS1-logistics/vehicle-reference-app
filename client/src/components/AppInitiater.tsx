@@ -1,4 +1,4 @@
-import { OS1Provider, OS1HttpClient, functionBoundOption, } from '@os1-platform/console-ui-react';
+import { OS1Provider, OS1HttpClient, functionBoundOption, } from '@foxtrotplatform/console-ui-react';
 
 import Initiate from './Initiate';
 
@@ -50,6 +50,7 @@ function AppInitiater(props: any) {
         devTenantId={process.env.REACT_APP_DEV_TENANT_ID}
         appId={process.env.REACT_APP_INITIAL_APP_ID}
         controls={controls}
+        interTabCommunicationRequired={true}
       >
         <Initiate setConsole={handleConsoleInstanceChange} />
       </OS1Provider>

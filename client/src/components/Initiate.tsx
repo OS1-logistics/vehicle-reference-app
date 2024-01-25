@@ -1,4 +1,4 @@
-import { ConsoleUIContext } from '@os1-platform/console-ui-react';
+import { ConsoleUIContext } from '@foxtrotplatform/console-ui-react';
 import React from 'react';
 
 function Initiate(props: any) {

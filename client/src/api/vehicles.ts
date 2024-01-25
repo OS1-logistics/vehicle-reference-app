@@ -1,12 +1,24 @@
-import { OS1HttpClient } from '@os1-platform/console-ui-react'
+import { OS1HttpClient } from '@foxtrotplatform/console-ui-react'
 import { v4 as uuidv4 } from 'uuid';
 
 import { getUxDateDisplay } from '../utils/dates';
 import { VEHICLE_NAME_PLURAL } from '../utils/constants';
+import { subscribe } from 'diagnostics_channel';
+
+export const subscribeTopic = async(client: any)=>{
+  const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_BASE_URL}`);
+  await axiosClient.subscribeBroadCastTopic([ "Test12", "Test13"])
+}
+
+export const unSubscribeTopic = async(client: any)=>{
+  const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_BASE_URL}`);
+  await axiosClient.unsubscribeBroadCastTopic([ "Test12"])
+}
 
 export const getVehicles = async (client: any) => {
   if (client) {
     const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_BASE_URL}`);
+    //await axiosClient.subscribeBroadCastTopic([ "Test12"])
     const resp = await axiosClient.get('/vehicles', 'getVehicles');
     const vehicleData = <VehicleParticipant[]>(resp.data);
 
@@ -37,7 +49,7 @@ export const fetchVehicle = async (id: string, client: any) => {
 
 export const getAccessToken = async (client: any) => {
   if (client) {
-    const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_TENANT_DNS}`);
+    const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_BASE_URL}`);
     const headers = {
       "X-COREOS-REQUEST-ID": uuidv4(),
     };
@@ -68,25 +80,19 @@ export const createVehicle = async (
 ): Promise<void> => {
   const dto = getDtoFromDisplay(data);
   dto['callback'] = {
-    "url": "{{SSE_CALLBACK}}",
+    "url": "{{SSE_BROADCAST(Test12)}}",
     "meta": {}
   }
   console.log("api call requested :-", new Date(), "having unix timestamp:- ", Date.now())
-  const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_TENANT_DNS}`);
-  const token =  await getAccessToken(client)
+  const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_BASE_URL}`);
   try {
     await axiosClient.post(
-      `core/api/v2/participants/${VEHICLE_NAME_PLURAL}`,
+      `/vehicles`,
       dto,
       'createVehicles',
-      {withAuth: false, withAccess: false},
-      {
-        headers: {
-          'X-COREOS-ORIGIN-TOKEN': token.data.accessToken,
-          'x-coreos-access': token.data.accessToken
-        }
-      }
+      {withAuth: false},
       );
+    console.log("api call recieved :-", new Date(), "having unix timestamp:- ", Date.now())  
     return;
   } catch (error) {
     console.error('error', error);
@@ -108,9 +114,13 @@ export const editVehicle = async (
     const sseClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_TENANT_DNS}`);
     const callbackUrl = await sseClient.getEventBrokerUrl()
     console.log("callback Url Revieved and api call is made after ms:- ", Date.now() - requestTime, "current Time is :-", new Date() )
-    properties.properties['callback'] = callbackUrl.callback
+    properties.properties['callback'] = {
+      "url": callbackUrl.callback,
+      "meta": {id}
+    }
 
     await axiosClient.put('/',properties,'editehicles-1');
+    await sseClient.broadCastEvents([ "Test12"], properties.properties )
     return;
   } catch (error) {
     console.error('error', error);
@@ -136,7 +146,7 @@ export const transitionStates = async (
   return;
 };
 
-const getDisplayFromParticipant = (
+export const getDisplayFromParticipant = (
   participant: any
 ): VehicleDisplay => {
   return {
@@ -154,7 +164,7 @@ const getDisplayFromParticipant = (
   };
 };
 
-const getDateStructure = (epoch: number): DateInfo => {
+export const getDateStructure = (epoch: number): DateInfo => {
   return {
     epoch,
     display: getUxDateDisplay(epoch),

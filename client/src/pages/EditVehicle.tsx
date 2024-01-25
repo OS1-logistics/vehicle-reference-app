@@ -6,7 +6,7 @@ import { createSearchParams, useNavigate, useParams, useSearchParams } from 'rea
 import { editVehicle, fetchVehicle } from '../api/vehicles';
 import { Toast } from '../components/Toast';
 import Title from '../layout/Title';
-import { OS1Toast } from '@os1-platform/console-ui-react';
+import { OS1Toast } from '@foxtrotplatform/console-ui-react';
 
 interface VehicleParticipantForm extends VehicleDisplay {}
 
@@ -57,14 +57,10 @@ function EditVehicle(props: any) {
     if (searchParams.has('success')) {
       const message = searchParams.get('message');
       if (message === 'edited') {
-        if (window && window?.name){
-          const event = JSON.parse(window.name)
-          setToastMsg(`fuelType : ${event?.properties.fuelType}, mode: ${event?.properties.mode}, Operator Id: ${event?.properties.operatorId} `);
           setIsSubmitting(false);
           searchParams.delete('success');
           searchParams.delete('message');
           setSearchParams(searchParams);
-         }
       }
     }
   }, [searchParams, setSearchParams ]);

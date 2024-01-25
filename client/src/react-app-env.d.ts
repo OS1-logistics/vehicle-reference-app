@@ -30,7 +30,7 @@ interface VehicleParticipantProperties {
   registrationNumber?: string;
   registrationYear?: number;
   availability?: boolean;
-  callback?: string
+  callback?: object
 }
 
 interface VehicleParticipant {
