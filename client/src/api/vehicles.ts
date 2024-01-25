@@ -6,18 +6,18 @@ import { VEHICLE_NAME_PLURAL } from '../utils/constants';
 import { subscribe } from 'diagnostics_channel';
 
 export const subscribeTopic = async(client: any)=>{
-  const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_BASE_URL}`);
+  const axiosClient = new OS1HttpClient(client.authInitializer, `${window.location.hostname}`);
   await axiosClient.subscribeBroadCastTopic([ "Test12", "Test13"])
 }
 
 export const unSubscribeTopic = async(client: any)=>{
-  const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_BASE_URL}`);
+  const axiosClient = new OS1HttpClient(client.authInitializer, `${window.location.hostname}`);
   await axiosClient.unsubscribeBroadCastTopic([ "Test12"])
 }
 
 export const getVehicles = async (client: any) => {
   if (client) {
-    const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_BASE_URL}`);
+    const axiosClient = new OS1HttpClient(client.authInitializer, `${window.location.hostname}`);
     //await axiosClient.subscribeBroadCastTopic([ "Test12"])
     const resp = await axiosClient.get('/os1-vehicle-reference-app/api/v1/vehicles', 'getVehicles');
     const vehicleData = <VehicleParticipant[]>(resp.data);
@@ -29,7 +29,7 @@ export const getVehicles = async (client: any) => {
 
 export const getToken = async (client: any) => {
   if (client) {
-    const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_BASE_URL}`);
+    const axiosClient = new OS1HttpClient(client.authInitializer, `${window.location.hostname}`);
     const resp = await axiosClient.get('/os1-vehicle-reference-app/api/v1/vehicles/token', 'getToken');
     const token = <any>(resp.data);
 
@@ -37,7 +37,7 @@ export const getToken = async (client: any) => {
   }
 };
 export const fetchVehicle = async (id: string, client: any) => {
-  const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_BASE_URL}`);
+  const axiosClient = new OS1HttpClient(client.authInitializer, `${window.location.hostname}`);
 
   try {
     const resp = await axiosClient.get(`/os1-vehicle-reference-app/api/v1/vehicles/${id}`,'fetchVehicles-id');
@@ -58,7 +58,7 @@ export const createVehicle = async (
     "meta": {}
   }
   console.log("api call requested :-", new Date(), "having unix timestamp:- ", Date.now())
-  const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_BASE_URL}`);
+  const axiosClient = new OS1HttpClient(client.authInitializer, `${window.location.hostname}`);
   try {
     await axiosClient.post(
       `/os1-vehicle-reference-app/api/v1/vehicles`,
@@ -80,7 +80,7 @@ export const editVehicle = async (
 ): Promise<void> => {
   const properties = { properties: getParticipantProperties(data) };
 
-  const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_BASE_URL}/vehicles/${id}`);
+  const axiosClient = new OS1HttpClient(client.authInitializer, `${window.location.hostname}/vehicles/${id}`);
 
   try {
     const requestTime = Date.now()
@@ -107,7 +107,7 @@ export const transitionStates = async (
   client: any
 ) => {
   const calls = vehicleIds.map((id) => {
-    const axiosClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_BASE_URL}`);
+    const axiosClient = new OS1HttpClient(client.authInitializer, `${window.location.hostname}`);
     try {
       return axiosClient.put(`/api/vehicles/${id}/transition`, { state: newState }, 'transitionStates');
     } catch (error) {
