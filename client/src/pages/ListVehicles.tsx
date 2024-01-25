@@ -269,7 +269,7 @@ function ListVehicles(props: any) {
   const unSubscribe = async() => {
     if (props.console){
       await unSubscribeTopic(props.console)
-      navigate('/vehicles/create')
+      navigate('/os1-vehicle-reference-app/create')
     }
   };
 
