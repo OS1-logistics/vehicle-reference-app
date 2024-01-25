@@ -6,6 +6,8 @@ WORKDIR /usr/app
 COPY . .
 
 RUN echo -e "@foxtrotplatform:registry=https://npm.pkg.github.com\n//npm.pkg.github.com/:_authToken=$F_GITHUB_TOKEN" > .npmrc \
+    && echo -e "@foxtrotplatform:registry=https://npm.pkg.github.com\n//npm.pkg.github.com/:_authToken=$F_GITHUB_TOKEN" > client/.npmrc \
+    && echo -e "@foxtrotplatform:registry=https://npm.pkg.github.com\n//npm.pkg.github.com/:_authToken=$F_GITHUB_TOKEN" > server/.npmrc \
     && npm run build
 
 FROM ${F_REGISTRY}fxtrt-base-node:14.17.0
