@@ -9,6 +9,6 @@ services:
     build:
       context: ./client
     ports:
-      - "4500:4500"
+      - "6000:6000"
     depends_on:
       - server
