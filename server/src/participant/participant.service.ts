@@ -51,6 +51,7 @@ export class ParticipantService {
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
     };
+    console.log("url clientCredentials", url, clientCredentialsPayload)
     return this.httpService.axiosRef
       .post(url, clientCredentialsPayload, {
         headers,
