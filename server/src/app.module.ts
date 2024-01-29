@@ -20,7 +20,7 @@ import { join } from 'path';
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
-      exclude: ['/os1-vehicle-reference-app/api/v1/vehicles/(.*)'],
+     // exclude: ['/os1-vehicle-reference-app/api/v1/vehicles/(.*)'],
     }),
   ],
   controllers: [AppController, VehiclesController],
