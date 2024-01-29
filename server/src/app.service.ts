@@ -16,3 +16,13 @@ export class CssContentTypeMiddleware implements NestMiddleware {
     next();
   }
 }
+
+@Injectable()
+export class JsContentTypeMiddleware implements NestMiddleware {
+  use(req: any, res: Response, next: NextFunction) {
+    if (req.url.endsWith('.js')) {
+      res.header('Content-Type', 'text/javascript');
+    }
+    next();
+  }
+}

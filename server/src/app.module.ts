@@ -1,6 +1,6 @@
 import { Module,  NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService, CssContentTypeMiddleware } from './app.service';
+import { AppService, CssContentTypeMiddleware, JsContentTypeMiddleware } from './app.service';
 import { VehiclesModule } from './vehicles/vehicles.module';
 import { ParticipantService } from './participant/participant.service';
 import { ParticipantModule } from './participant/participant.module';
@@ -28,6 +28,6 @@ import { join } from 'path';
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(CssContentTypeMiddleware).forRoutes('*');
+    consumer.apply(CssContentTypeMiddleware, JsContentTypeMiddleware).forRoutes('*');
   }
 }
