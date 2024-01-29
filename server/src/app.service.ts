@@ -10,6 +10,7 @@ export class AppService {
 
 export class CssContentTypeMiddleware implements NestMiddleware {
   use(req: any, res: Response, next: NextFunction) {
+    console.log("Inside CSS Module")
     if (req.url.endsWith('.css')) {
       res.header('Content-Type', 'text/css');
     }
@@ -20,6 +21,7 @@ export class CssContentTypeMiddleware implements NestMiddleware {
 @Injectable()
 export class JsContentTypeMiddleware implements NestMiddleware {
   use(req: any, res: Response, next: NextFunction) {
+    console.log("Inside JS Module")
     if (req.url.endsWith('.js')) {
       res.header('Content-Type', 'text/javascript');
     }
