@@ -1,5 +1,5 @@
-export const VEHICLE_NAME_SINGULAR = 'suv';
-export const VEHICLE_NAME_PLURAL = 'suvs';
+export const VEHICLE_NAME_SINGULAR = 'minicar';
+export const VEHICLE_NAME_PLURAL = 'minicars';
 
 export const PARTICIPANT_EXISTS_ERROR_CODE = '101110522301';
 
@@ -8,6 +8,7 @@ export const PARTICIPANT_CREATE_BODY = {
     singular: VEHICLE_NAME_SINGULAR,
     plural: VEHICLE_NAME_PLURAL,
   },
+  "entityCode": "1403",
 };
 
 export const ATTRIBUTES_CREATE_BODY = {
