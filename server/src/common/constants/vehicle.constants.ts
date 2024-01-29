@@ -1,5 +1,5 @@
-export const VEHICLE_NAME_SINGULAR = 'smalltruck';
-export const VEHICLE_NAME_PLURAL = 'smalltrucks';
+export const VEHICLE_NAME_SINGULAR = 'lorry';
+export const VEHICLE_NAME_PLURAL = 'lorries';
 
 export const PARTICIPANT_EXISTS_ERROR_CODE = '101110522301';
 
