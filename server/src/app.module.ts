@@ -19,7 +19,7 @@ import { join } from 'path';
       envFilePath: ['.env.local', '.env'],
     }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'),
+      rootPath: join(__dirname, '..', '/public/'),
       exclude: ['/os1-vehicle-reference-app/api/v1/vehicles/(.*)'],
     }),
   ],
@@ -28,7 +28,7 @@ import { join } from 'path';
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    console.log("Inside APP Module")
+    console.log("Inside APP Module");
     consumer.apply(CssContentTypeMiddleware, JsContentTypeMiddleware).forRoutes('*');
   }
 }
