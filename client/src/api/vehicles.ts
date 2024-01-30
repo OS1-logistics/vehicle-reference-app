@@ -85,7 +85,7 @@ export const editVehicle = async (
   try {
     const requestTime = Date.now()
     console.log("Request for callback Url", new Date())
-    const sseClient = new OS1HttpClient(client.authInitializer, `${process.env.REACT_APP_TENANT_DNS}`);
+    const sseClient = new OS1HttpClient(client.authInitializer, `https://${window.location.hostname}`);
     const callbackUrl = await sseClient.getEventBrokerUrl()
     console.log("callback Url Revieved and api call is made after ms:- ", Date.now() - requestTime, "current Time is :-", new Date() )
     properties.properties['callback'] = {
