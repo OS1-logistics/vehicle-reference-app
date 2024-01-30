@@ -11,10 +11,10 @@ export class AppService {
 export class CssContentTypeMiddleware implements NestMiddleware {
   use(req: any, res: Response, next: NextFunction) {
     console.log("Inside CSS Module")
-    if (req.url.endsWith('.css')) {
+    //if (req.url.endsWith('.css')) {
       console.log("inside css", req.url)
       res.header('Content-Type', 'text/css');
-    }
+  //  }
     next();
   }
 }
@@ -23,10 +23,10 @@ export class CssContentTypeMiddleware implements NestMiddleware {
 export class JsContentTypeMiddleware implements NestMiddleware {
   use(req: any, res: Response, next: NextFunction) {
     console.log("Inside JS Module")
-    if (req.url.endsWith('.js')) {
+   // if (req.url.endsWith('.js')) {
       console.log("inside js", req.url)
       res.header('Content-Type', 'text/javascript');
-    }
+  //  }
     next();
   }
 }
