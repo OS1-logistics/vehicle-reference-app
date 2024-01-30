@@ -19,7 +19,7 @@ import { join } from 'path';
       envFilePath: ['.env.local', '.env'],
     }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', '/client/'),
+      rootPath: join(__dirname, '..', '/public/'),
       exclude: ['/os1-vehicle-reference-app/api/v1/vehicles/(.*)'],
     }),
   ],
