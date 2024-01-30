@@ -21,6 +21,7 @@ import { join } from 'path';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
       exclude: ['/os1-vehicle-reference-app/api/v1/vehicles/(.*)'],
+      serveRoot: '/os1-vehicle-reference-app',
     }),
   ],
   controllers: [AppController, VehiclesController],
