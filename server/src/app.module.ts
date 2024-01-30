@@ -29,7 +29,7 @@ import { join } from 'path';
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    console.log("Inside APP Module");
+//console.log("Inside APP Module");
     consumer.apply(CssContentTypeMiddleware, JsContentTypeMiddleware).forRoutes('*');
   }
 }
