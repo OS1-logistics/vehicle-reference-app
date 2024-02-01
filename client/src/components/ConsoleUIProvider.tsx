@@ -23,9 +23,9 @@ const ConsoleUIProvider = (props: any) => {
     setConsoleInstance(props.console);
     (async function (){
       let token = await getToken(props.console)
-      if (!(token.startswith("tenants:")))
-        token = `tenants:${token}`
-      sessionStorage.setItem("appOwnerId", token);
+      // if (!(token.startswith("tenants:")))
+      //   token = `tenants:${token}`
+      sessionStorage.setItem("appOwnerId", `tenants:${token}`);
     })()
     const handleEvent = (e: any)=>{
       //console.log(e)
