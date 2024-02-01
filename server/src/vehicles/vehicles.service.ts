@@ -23,6 +23,7 @@ import {
 import { handleErrorResponse } from '../common/error/axios.error';
 import { ParticipantService } from '../participant/participant.service';
 import { VehicleStateMachine } from './vehicle.state-machine';
+import { boolean, number, object } from 'joi';
 
 @Injectable()
 export class VehiclesService implements OnModuleInit {
@@ -41,31 +42,31 @@ export class VehiclesService implements OnModuleInit {
     try {
       const headers = await this.participantService.buildHeaders();
       // create vehicle participant type
-      await this.httpService.axiosRef
-        .post(
-          this.participantService.getParticipantServiceBaseUrl() +
-            '/participant-types',
-          PARTICIPANT_CREATE_BODY,
-          {
-            headers,
-          },
-        )
-        .then(() => {
-          this.logger.log(
-            `Participant Type ${VEHICLE_NAME_PLURAL} Successfully Created`,
-          );
-        })
-        .catch((error) => {
-          const errorData = handleErrorResponse(error);
-          if (errorData.code !== PARTICIPANT_EXISTS_ERROR_CODE) {
-            throw new Error(
-              `Error communicating with Participant Service: ${errorData.description}`,
-            );
-          }
-          this.logger.log(
-            `Participant Type ${VEHICLE_NAME_PLURAL} Already Exists`,
-          );
-        });
+      // await this.httpService.axiosRef
+      //   .post(
+      //     this.participantService.getParticipantServiceBaseUrl() +
+      //       '/participant-types',
+      //     PARTICIPANT_CREATE_BODY,
+      //     {
+      //       headers,
+      //     },
+      //   )
+      //   .then(() => {
+      //     this.logger.log(
+      //       `Participant Type ${VEHICLE_NAME_PLURAL} Successfully Created`,
+      //     );
+      //   })
+      //   .catch((error) => {
+      //     const errorData = handleErrorResponse(error);
+      //     if (errorData.code !== PARTICIPANT_EXISTS_ERROR_CODE) {
+      //       throw new Error(
+      //         `Error communicating with Participant Service: ${errorData.description}`,
+      //       );
+      //     }
+      //     this.logger.log(
+      //       `Participant Type ${VEHICLE_NAME_PLURAL} Already Exists`,
+      //     );
+      //   });
       // create vehicle attributes
       await this.httpService.axiosRef
         .put(
@@ -308,3 +309,6 @@ export class VehiclesService implements OnModuleInit {
     );
   }
 }
+
+
+
