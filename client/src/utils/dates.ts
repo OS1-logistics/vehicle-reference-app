@@ -9,8 +9,7 @@ export const getUxDateDisplay = (dateMs?: number) => {
   if (!dateMs) {
     return '';
   }
-
-  const date = dayjs(dateMs);
+  const date = dayjs(Number(dateMs));
   const days = date.diff(dayjs(), 'day');
   const displayDate = days ? date.format('ll') : date.fromNow();
 

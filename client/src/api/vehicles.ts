@@ -7,12 +7,12 @@ import { subscribe } from 'diagnostics_channel';
 
 export const subscribeTopic = async(client: any)=>{
   const axiosClient = new OS1HttpClient(client.authInitializer, `https://${window.location.hostname}`);
-  await axiosClient.subscribeBroadCastTopic([ "Test12", "Test13"])
+  await axiosClient.subscribeBroadCastTopic([ "Test17", "Test18"])
 }
 
 export const unSubscribeTopic = async(client: any)=>{
   const axiosClient = new OS1HttpClient(client.authInitializer, `https://${window.location.hostname}`);
-  await axiosClient.unsubscribeBroadCastTopic([ "Test12"])
+  await axiosClient.unsubscribeBroadCastTopic([ "Test17"])
 }
 
 export const getVehicles = async (client: any) => {
@@ -54,7 +54,7 @@ export const createVehicle = async (
 ): Promise<void> => {
   const dto = getDtoFromDisplay(data);
   dto['callback'] = {
-    "url": "{{SSE_BROADCAST(Test12)}}",
+    "url": "{{SSE_BROADCAST(Test17)}}",
     "meta": {}
   }
   console.log("api call requested :-", new Date(), "having unix timestamp:- ", Date.now())
@@ -94,7 +94,7 @@ export const editVehicle = async (
     }
 
     await axiosClient.put('/',properties,'editehicles-1');
-    await sseClient.broadCastEvents([ "Test12"], properties.properties )
+    await sseClient.broadCastEvents([ "Test17"], properties.properties )
     return;
   } catch (error) {
     console.error('error', error);

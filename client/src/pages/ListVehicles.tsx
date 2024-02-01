@@ -81,7 +81,12 @@ function ListVehicles(props: any) {
       const vehicleData = e?.detail?.payload?.data?.data as VehicleParticipant;
       if (e?.detail?.payload?.data?.entityInstanceId){
         vehicleData.id = e?.detail?.payload?.data?.entityInstanceId
-        
+        vehicleData.state = {
+          "current": "onboarding:onboarding",
+          "transitions": [
+              "active:active"
+          ]
+      }
         const vehicle = getDisplayFromParticipant(vehicleData);
         vehicleInstance.push(vehicle)
         setVehicles(vehicleInstance)
@@ -96,7 +101,7 @@ function ListVehicles(props: any) {
           }
         })
         setVehicles(vehicleInstance)
-        setFilterableStates(getFilterableStates(vehicles));
+        setFilterableStates(getFilterableStates(vehicleInstance));
         const emptyVehicleSelections = getEmptyVehicleSelections(vehicles);
         setSelectedVehicles(emptyVehicleSelections);
         constructStateTransitionPaths(vehicles);
@@ -131,6 +136,7 @@ function ListVehicles(props: any) {
     const getAllVehicles = async () => {
       if (props.console){
        await subscribeTopic(props.console);
+        setToastMsg(`Topic Subscribed ${[ "Test17", "Test18"]}`);
         let vehicles = await getVehicles(props.console);
         if (vehicles == undefined) vehicles = [];
         setVehicles(vehicles);
@@ -269,6 +275,7 @@ function ListVehicles(props: any) {
   const unSubscribe = async() => {
     if (props.console){
       await unSubscribeTopic(props.console)
+      setToastMsg(`Topic unsubscribed ${["Test15"]}`);
       navigate('/os1-vehicle-reference-app/create')
     }
   };
