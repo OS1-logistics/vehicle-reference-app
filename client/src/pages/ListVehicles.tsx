@@ -501,7 +501,7 @@ useEffect(()=>{
                   <Table.Cell>
                     <Link
                       className="text-blue-700 underline"
-                      to={`/vehicle/${vehicle.id}`}
+                      to={`/os1-vehicle-reference-app/${vehicle.id}`}
                     >
                       {vehicle.name}
                     </Link>

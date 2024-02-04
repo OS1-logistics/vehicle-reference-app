@@ -65,7 +65,7 @@ function ViewVehicle(props: any) {
       <div className="flex flex-row items-center gap-4 md:gap-6">
         <Title>{vehicle?.name}</Title>
         {!isLoading && (
-          <VehicleStateDisplay size="lg" rawState={vehicle?.state.current} />
+          <VehicleStateDisplay size="lg" rawState={vehicle?.state?.current} />
         )}
       </div>
       {isLoading && (
@@ -126,7 +126,7 @@ function ViewVehicle(props: any) {
                 id={'properties.fuelType'}
                 type="text"
                 disabled={true}
-                placeholder={vehicle?.properties.fuelType}
+                placeholder={vehicle?.properties?.fuelType}
                 required={true}
                 {...register('properties.fuelType', {})}
               />
@@ -139,7 +139,7 @@ function ViewVehicle(props: any) {
                 id={'properties.mode'}
                 type="text"
                 disabled={true}
-                placeholder={vehicle?.properties.mode}
+                placeholder={vehicle?.properties?.mode}
                 required={true}
                 {...register('properties.mode', {})}
               />
@@ -152,7 +152,7 @@ function ViewVehicle(props: any) {
                 id={'properties.operatorId'}
                 type="text"
                 disabled={true}
-                placeholder={vehicle?.properties.operatorId}
+                placeholder={vehicle?.properties?.operatorId}
                 required={true}
                 {...register('properties.operatorId', {})}
               />
@@ -168,7 +168,7 @@ function ViewVehicle(props: any) {
                 id={'properties.payloadCapacity'}
                 type="text"
                 disabled={true}
-                placeholder={vehicle?.properties.payloadCapacity}
+                placeholder={vehicle?.properties?.payloadCapacity}
                 required={true}
                 {...register('properties.payloadCapacity', {})}
               />
@@ -184,7 +184,7 @@ function ViewVehicle(props: any) {
                 id={'properties.registrationNumber'}
                 type="text"
                 disabled={true}
-                placeholder={vehicle?.properties.registrationNumber}
+                placeholder={vehicle?.properties?.registrationNumber}
                 required={true}
                 {...register('properties.registrationNumber', {})}
               />
@@ -200,7 +200,7 @@ function ViewVehicle(props: any) {
                 id={'properties.registrationYear'}
                 type="text"
                 disabled={true}
-                placeholder={vehicle?.properties.registrationYear?.toString()}
+                placeholder={vehicle?.properties?.registrationYear?.toString()}
                 required={true}
                 {...register('properties.registrationYear', {})}
               />
@@ -216,7 +216,7 @@ function ViewVehicle(props: any) {
                 id={'createdAt.display'}
                 type="text"
                 disabled={true}
-                placeholder={vehicle?.createdAt.display}
+                placeholder={vehicle?.createdAt?.display}
                 required={true}
                 {...register('createdAt.display', {})}
               />
