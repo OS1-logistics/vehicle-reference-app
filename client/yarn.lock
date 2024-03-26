@@ -1415,10 +1415,10 @@
   dependencies:
     prop-types "^15.8.1"
 
-"@foxtrotplatform/console-ui-js@0.11.4":
-  version "0.11.4"
-  resolved "https://npm.pkg.github.com/download/@foxtrotplatform/console-ui-js/0.11.4/a039d52fd273a39867552b5a6210af17f76089f8#a039d52fd273a39867552b5a6210af17f76089f8"
-  integrity sha512-j7XwlJ3DGfDtDfkJ8Yn9JWlfQ/3W42rbyNBn7CdRgSGmCN8EBsXov2vVqV8Zvbv+FTzm/t/TXTrVB+NXD9mieA==
+"@foxtrotplatform/console-ui-js@0.11.5":
+  version "0.11.5"
+  resolved "https://npm.pkg.github.com/download/@foxtrotplatform/console-ui-js/0.11.5/e617f34893b9047ea356a2bbbff8ca83ee59c96c#e617f34893b9047ea356a2bbbff8ca83ee59c96c"
+  integrity sha512-G+Vb5Ev+WbJf4L34tYkkEHFKR/wS8nDll30fLF7lEZfnO7pCI5t7ggZVNIn5TLxuukPoQxFuSZc7JBT9zXOoOQ==
   dependencies:
     "@fortawesome/fontawesome" "^1.1.8"
     "@fullhuman/postcss-purgecss" "^5.0.0"
@@ -1438,12 +1438,12 @@
     uuid "^8.3.2"
     uuid-by-string "^3.0.4"
 
-"@foxtrotplatform/console-ui-react@0.11.4":
-  version "0.11.4"
-  resolved "https://npm.pkg.github.com/download/@foxtrotplatform/console-ui-react/0.11.4/4f0dcc909083ccd75bc2744c6efbc86e3708f5b0#4f0dcc909083ccd75bc2744c6efbc86e3708f5b0"
-  integrity sha512-AC7zN51H27ufcdUZz9sxZqRrRIE+BT2aqTGr22mFvPu3eOBWkrG2hI3vd+WBgAV0jPrCbXMiSq8IIOp31EACXQ==
+"@foxtrotplatform/console-ui-react@0.11.5":
+  version "0.11.5"
+  resolved "https://npm.pkg.github.com/download/@foxtrotplatform/console-ui-react/0.11.5/cffd591ab31ea65faac67ec26359aec1c63c87ba#cffd591ab31ea65faac67ec26359aec1c63c87ba"
+  integrity sha512-YDtu/8F0I3hqz5/zW8dC5WQDcpG4sbCpEhsAWjsuPZ5XFKkQjFVPOUfQJuA3ubXJmJqG6dsEkxYdb5Fd71PjJw==
   dependencies:
-    "@foxtrotplatform/console-ui-js" "0.11.4"
+    "@foxtrotplatform/console-ui-js" "0.11.5"
     "@fullhuman/postcss-purgecss" "^5.0.0"
     "@react-native-community/eslint-config" "^2.0.0"
     "@types/react" "^17.0.37"
